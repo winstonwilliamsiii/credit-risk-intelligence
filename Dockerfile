@@ -24,10 +24,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy only requirements first (Docker layer cache)
-COPY requirements.txt .
+COPY requirements_render.txt .
 
 RUN pip install --upgrade pip \
-    && pip install --prefix=/install --no-cache-dir -r requirements.txt
+    && pip install --prefix=/install --no-cache-dir -r requirements_render.txt
 
 
 # ── Stage 2: Runtime ─────────────────────────────────────────────────────────
